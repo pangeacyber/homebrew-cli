@@ -10,7 +10,7 @@ class Pangea < Formula
   on_macos do
     on_intel do
       url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.1.1/pangea-darwin-amd64", using: CurlDownloadStrategy
-      sha256 "cf1f00498d4d8e13c53c739cd93379c17346e406311a2c0ca6da334a4129208c"
+      sha256 "3346a02122e6888d42e05f27f7d3a7a1cebf0879778ad9e15e1c114e2ee9578a"
 
       def install
         bin.install "pangea-darwin-amd64" => "pangea"
@@ -18,7 +18,7 @@ class Pangea < Formula
     end
     on_arm do
       url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.1.1/pangea-darwin-arm64", using: CurlDownloadStrategy
-      sha256 "4d62ca24d6950601713e0afd114a991e207ee923b09092566716244876d6d908"
+      sha256 "8f4aa5ad8bdea80179bf9de22373e7f6c4a4a10803231a7370b52ee380e3b4fc"
 
       def install
         bin.install "pangea-darwin-arm64" => "pangea"
@@ -30,7 +30,7 @@ class Pangea < Formula
     on_intel do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.1.1/pangea-linux-amd64", using: CurlDownloadStrategy
-        sha256 "4dd9e96a86d68d458da5229443197a387ea348e982b51eb9a0266812c09bc513"
+        sha256 "ccfb3a729d594bb561e822130c848b9c3c85eb6c0987833b73104cc2f0890bdf"
 
         def install
           bin.install "pangea-linux-amd64" => "pangea"
@@ -40,7 +40,7 @@ class Pangea < Formula
     on_arm do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.1.1/pangea-linux-arm64", using: CurlDownloadStrategy
-        sha256 "d2380f97ac0bf9eade06e9909cea4cc1d17786251a78769d8ea5bd0ae4951e41"
+        sha256 "713042dc7f3d51d9946750061467028efc915e4dd8d2ee8b084848c78edfab75"
 
         def install
           bin.install "pangea-linux-arm64" => "pangea"
