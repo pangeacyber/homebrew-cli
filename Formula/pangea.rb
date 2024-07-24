@@ -10,20 +10,18 @@ class Pangea < Formula
   on_macos do
     on_intel do
       url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.1.1/pangea-darwin-amd64", using: CurlDownloadStrategy
-      sha256 "dace6e511380ecda0873fa430269c795fe859d1d8c430ba93fbabb93d5ca2590"
+      sha256 "7fb73ec89690ad935865b59e95d392c49112c72a47f8e2b818461b7b56ed585e"
 
       def install
-        (libexec/"scripts").install "dev/install.sh"
-        system "#{libexec}/scripts/install.sh"
+        bin.install "pangea-darwin-amd64" => "pangea"
       end
     end
     on_arm do
       url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.1.1/pangea-darwin-arm64", using: CurlDownloadStrategy
-      sha256 "85eb2b7a14c9566a7b129341f587ccf61147f159a8f2495d827f4e2c16ae8dfb"
+      sha256 "ecd6d715478fc268b2997695508e4530b581ccad5d5ce75bd2adb7370435a040"
 
       def install
-        (libexec/"scripts").install "dev/install.sh"
-        system "#{libexec}/scripts/install.sh"
+        bin.install "pangea-darwin-arm64" => "pangea"
       end
     end
   end
@@ -32,22 +30,20 @@ class Pangea < Formula
     on_intel do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.1.1/pangea-linux-amd64", using: CurlDownloadStrategy
-        sha256 "c365ad9f0c751e0cc75884fb63a31abbe378dfd7e531fa91f59e34167b595fb2"
+        sha256 "f6ab1422991c40ae4a50cfadf8b16f9688bc330af187e43820133cef99b9af78"
 
         def install
-          (libexec/"scripts").install "dev/install.sh"
-          system "#{libexec}/scripts/install.sh"
+          bin.install "pangea-linux-amd64" => "pangea"
         end
       end
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.1.1/pangea-linux-arm64", using: CurlDownloadStrategy
-        sha256 "1114394c9f69bd11ae2b92a61421510c68dff0ff6eb89d05936c60093f1aaea8"
+        sha256 "4d6abaf8987c2f54a154ad471e0362a8cbb33e5bcb37f85b89cc7156be320eb8"
 
         def install
-          (libexec/"scripts").install "dev/install.sh"
-          system "#{libexec}/scripts/install.sh"
+          bin.install "pangea-linux-arm64" => "pangea"
         end
       end
     end
