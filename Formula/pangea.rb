@@ -5,23 +5,29 @@
 class Pangea < Formula
   desc ""
   homepage "https://pangea.cloud/"
-  version "1.2.0"
+  version "1.2.1"
 
   on_macos do
     on_intel do
-      url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.2.0/pangea-darwin-amd64", using: CurlDownloadStrategy
-      sha256 "41d2ed835d89ea9c75d1042eb48eda513e879f59070664b529068382434d352f"
+      url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.2.1/pangea-darwin-amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "47525752391331a5063b80bb342c1b23bc0fda8b7d89715a88507935ceee1d9b"
 
       def install
-        bin.install "pangea-darwin-amd64" => "pangea"
+        bin.install "pangea"
+        bash_completion.install "completions/pangea.bash" => "pangea"
+        zsh_completion.install "completions/pangea.zsh" => "_pangea"
+        fish_completion.install "completions/pangea.fish"
       end
     end
     on_arm do
-      url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.2.0/pangea-darwin-arm64", using: CurlDownloadStrategy
-      sha256 "1726ae8ae48d473fb0c6ddebd666e228200073524b367f10f08e6a47741b7ad5"
+      url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.2.1/pangea-darwin-arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "046e01a72669aedd73cf2c5a50a2145115a26e1b1b866306d6c148822a1061ff"
 
       def install
-        bin.install "pangea-darwin-arm64" => "pangea"
+        bin.install "pangea"
+        bash_completion.install "completions/pangea.bash" => "pangea"
+        zsh_completion.install "completions/pangea.zsh" => "_pangea"
+        fish_completion.install "completions/pangea.fish"
       end
     end
   end
@@ -29,23 +35,33 @@ class Pangea < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.2.0/pangea-linux-amd64", using: CurlDownloadStrategy
-        sha256 "87e989ff39fa35dcf7f25008c09ed198b5ae71e6fde5e374f01ad47dc9788420"
+        url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.2.1/pangea-linux-amd64.tar.gz", using: CurlDownloadStrategy
+        sha256 "5e76e8a5635832a571924b7abb5e25ffefd9e3740030f658bc655d9504133ebb"
 
         def install
-          bin.install "pangea-linux-amd64" => "pangea"
+          bin.install "pangea"
+          bash_completion.install "completions/pangea.bash" => "pangea"
+          zsh_completion.install "completions/pangea.zsh" => "_pangea"
+          fish_completion.install "completions/pangea.fish"
         end
       end
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.2.0/pangea-linux-arm64", using: CurlDownloadStrategy
-        sha256 "9399d1c75a6d590fe11206b09298f8b50c0bdbc3cae753190843d312fc794208"
+        url "https://github.com/pangeacyber/pangea-cli/releases/download/v1.2.1/pangea-linux-arm64.tar.gz", using: CurlDownloadStrategy
+        sha256 "4c4c80e73635c60b36f0b00af5517b8bbb350ed36f663b6e3adf4e3727bac133"
 
         def install
-          bin.install "pangea-linux-arm64" => "pangea"
+          bin.install "pangea"
+          bash_completion.install "completions/pangea.bash" => "pangea"
+          zsh_completion.install "completions/pangea.zsh" => "_pangea"
+          fish_completion.install "completions/pangea.fish"
         end
       end
     end
+  end
+
+  test do
+    system "#{bin}/pangea --version"
   end
 end
